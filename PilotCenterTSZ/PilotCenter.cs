@@ -196,10 +196,12 @@ where user_email=@Email and qualification != 0",
 
                 MySqlCommand sqlCmd1 = new MySqlCommand(sqlPirepsCountSum, conn);
                 sqlCmd1.Parameters.AddWithValue("@Email", Properties.Settings.Default.Email);
-                if (sqlCmd1.ExecuteScalar() is null)
-                    PirepsCountSum = Convert.ToInt32(sqlCmd1.ExecuteScalar());
-                else
+                var tytt = sqlCmd1.ExecuteScalar();
+
+                if (PirepsCount == 0)
                     PirepsCountSum = 0;
+                else
+                    PirepsCountSum = Convert.ToInt32(sqlCmd1.ExecuteScalar());
 
                 if (PirepsCountSum > 0 && PirepsCount > 0)
                     Efficiency = PirepsCountSum / PirepsCount;
