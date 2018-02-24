@@ -37,9 +37,13 @@
             this.btnPilotCenter = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnRefresh = new Bunifu.Framework.UI.BunifuTileButton();
             this.lblWelcome = new System.Windows.Forms.Label();
-            this.pilotAccountCtrl = new PilotCenterTSZ.UI.PilotAccountCtrl();
             this.flightAssignmentCtrl = new PilotCenterTSZ.UI.FlightAssignmentCtrl();
             this.VerifyAndDeleteFlight = new System.Windows.Forms.Timer(this.components);
+            this.lblFlightAlert = new System.Windows.Forms.Label();
+            this.pBarFlightTimeEnd = new Bunifu.Framework.UI.BunifuProgressBar();
+            this.FlightTimeEndTick = new System.Windows.Forms.Timer(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.pilotAccountCtrl = new PilotCenterTSZ.UI.PilotAccountCtrl();
             this.panel1.SuspendLayout();
             this.pMenuBar.SuspendLayout();
             this.SuspendLayout();
@@ -47,6 +51,9 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.pBarFlightTimeEnd);
+            this.panel1.Controls.Add(this.lblFlightAlert);
             this.panel1.Controls.Add(this.lblTitle);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -112,6 +119,14 @@
             this.btnAssignFlight.Textcolor = System.Drawing.Color.White;
             this.btnAssignFlight.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAssignFlight.Click += new System.EventHandler(this.btnAssignFlight_Click);
+            // 
+            // pilotAccountCtrl
+            // 
+            this.pilotAccountCtrl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pilotAccountCtrl.Location = new System.Drawing.Point(214, 123);
+            this.pilotAccountCtrl.Name = "pilotAccountCtrl1";
+            this.pilotAccountCtrl.Size = new System.Drawing.Size(935, 500);
+            this.pilotAccountCtrl.TabIndex = 99;
             // 
             // btnPilotCenter
             // 
@@ -179,14 +194,6 @@
             this.lblWelcome.TabIndex = 98;
             this.lblWelcome.Text = "Welcome";
             // 
-            // pilotAccountCtrl
-            // 
-            this.pilotAccountCtrl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pilotAccountCtrl.Location = new System.Drawing.Point(214, 123);
-            this.pilotAccountCtrl.Name = "pilotAccountCtrl1";
-            this.pilotAccountCtrl.Size = new System.Drawing.Size(935, 500);
-            this.pilotAccountCtrl.TabIndex = 99;
-            // 
             // flightAssignmentCtrl
             // 
             this.flightAssignmentCtrl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -200,6 +207,48 @@
             // 
             this.VerifyAndDeleteFlight.Interval = 10000;
             this.VerifyAndDeleteFlight.Tick += new System.EventHandler(this.VerifyAndDeleteFlight_Tick);
+            // 
+            // lblFlightAlert
+            // 
+            this.lblFlightAlert.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFlightAlert.ForeColor = System.Drawing.Color.Red;
+            this.lblFlightAlert.Location = new System.Drawing.Point(248, 48);
+            this.lblFlightAlert.Name = "lblFlightAlert";
+            this.lblFlightAlert.Size = new System.Drawing.Size(889, 29);
+            this.lblFlightAlert.TabIndex = 100;
+            this.lblFlightAlert.Text = "Welcome";
+            this.lblFlightAlert.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblFlightAlert.Visible = false;
+            // 
+            // pBarFlightTimeEnd
+            // 
+            this.pBarFlightTimeEnd.BackColor = System.Drawing.Color.Silver;
+            this.pBarFlightTimeEnd.BorderRadius = 5;
+            this.pBarFlightTimeEnd.Location = new System.Drawing.Point(727, 21);
+            this.pBarFlightTimeEnd.MaximumValue = 100;
+            this.pBarFlightTimeEnd.Name = "pBarFlightTimeEnd";
+            this.pBarFlightTimeEnd.ProgressColor = System.Drawing.Color.Teal;
+            this.pBarFlightTimeEnd.Size = new System.Drawing.Size(410, 21);
+            this.pBarFlightTimeEnd.TabIndex = 101;
+            this.pBarFlightTimeEnd.Value = 0;
+            this.pBarFlightTimeEnd.Visible = false;
+            // 
+            // FlightTimeEndTick
+            // 
+            this.FlightTimeEndTick.Interval = 1000;
+            this.FlightTimeEndTick.Tick += new System.EventHandler(this.FlightTimeEndTick_Tick);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(631, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 17);
+            this.label1.TabIndex = 102;
+            this.label1.Text = "Flight Expire:";
+            this.label1.Visible = false;
             // 
             // Dashboard
             // 
@@ -236,6 +285,10 @@
         private Bunifu.Framework.UI.BunifuFlatButton btnPilotCenter;
         private UI.FlightAssignmentCtrl flightAssignmentCtrl;
         private System.Windows.Forms.Timer VerifyAndDeleteFlight;
+        public System.Windows.Forms.Label lblFlightAlert;
+        private Bunifu.Framework.UI.BunifuProgressBar pBarFlightTimeEnd;
+        private System.Windows.Forms.Timer FlightTimeEndTick;
+        private System.Windows.Forms.Label label1;
     }
 }
 

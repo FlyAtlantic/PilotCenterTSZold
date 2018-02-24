@@ -243,6 +243,16 @@ namespace PilotCenterTSZ.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap lg_TSZ {
+            get {
+                object obj = ResourceManager.GetObject("lg_TSZ", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MD11 {
             get {
                 object obj = ResourceManager.GetObject("MD11", resourceCulture);

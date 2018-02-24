@@ -26,6 +26,7 @@ namespace PilotCenterTSZ.UI
 
         public void UpdateFlightInfo()
         {
+
             AssignFlight f = new AssignFlight();
 
             f.VerifyFlightAssign();
@@ -41,5 +42,13 @@ namespace PilotCenterTSZ.UI
                 assingmentCtrl.Show();
             }
         }
+
+        public void AlertFlight()
+        {
+            var b = this.Parent as Dashboard;
+
+            b.AlertFlight();
+        }
+
     }
 }

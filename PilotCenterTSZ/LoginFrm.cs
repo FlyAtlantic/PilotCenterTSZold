@@ -13,6 +13,7 @@ namespace PilotCenterTSZ
 {
     public partial class LoginFrm : Form
     {
+        StartImage InitialImg = new StartImage();
 
         public LoginFrm()
         {
@@ -24,6 +25,7 @@ namespace PilotCenterTSZ
 
             ShowInTaskbar = false;
 
+            InitialImg.Show();
 
         }
 
@@ -39,6 +41,7 @@ namespace PilotCenterTSZ
 
                 if (Login.ValidateLogin(txtEmail.Text, txtPassword.Text))
                 {
+                    InitialImg.Hide();
                     Dashboard d = new Dashboard();
                     //login correto
                     d.Show();

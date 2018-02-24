@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("PilotCenterTSZ")]
+[assembly: AssemblyTitle("ExamCenterUpdate")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("FlyAtlantic")]
-[assembly: AssemblyProduct("PilotCenterTSZ")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("ExamCenterUpdate")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("72c6ebbd-d5da-44e6-ad86-67fdc43925b6")]
+[assembly: Guid("2b047db0-e6ae-4a01-974e-d1253d73ca51")]
 
 // Version information for an assembly consists of the following four values:
 //

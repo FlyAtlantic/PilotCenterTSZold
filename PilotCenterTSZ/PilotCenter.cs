@@ -400,12 +400,12 @@ group by
             }
             finally
             {
-
+                Dashboard.GetFlightInfosToDash(FlightID, FlightCallsign, UserDeparture, UserArrival, UserAircraft);
                 conn.Close();
             }
         }
 
-        public void RandAssignFlight(string userLocation, int aircraft, DateTime flightTime)
+        public void RandAssignFlight(string userLocation, string aircraft, string flightTime)
         {
             string sqlRandAssignFlight = "select departure, destination, aircraft, idf, user_id  from qualifications inner join flights on qualifications.qualification = flights.qualification_need left join utilizadores on qualifications.pilot = utilizadores.user_id where user_email = @Email and aircraft=@Aircraft and flighttime<=@FlightTime and departure =@Location ORDER BY RAND() LIMIT 1";
             string sqlInsertAssign = "INSERT INTO `pilotassignments` (`flightid`, `pilot`, `date_assigned`) VALUES (@FlightID, @UserID, NOW())";
@@ -417,26 +417,29 @@ group by
 
                 MySqlCommand sqlCmd = new MySqlCommand(sqlRandAssignFlight, conn);
                 sqlCmd.Parameters.AddWithValue("@Email", Properties.Settings.Default.Email);
-                sqlCmd.Parameters.AddWithValue("@Aircraft", flightTime);
-                sqlCmd.Parameters.AddWithValue("@FlightTime", aircraft);
+                sqlCmd.Parameters.AddWithValue("@Aircraft", aircraft);
+                sqlCmd.Parameters.AddWithValue("@FlightTime", flightTime);
                 sqlCmd.Parameters.AddWithValue("@Location", userLocation);
 
                 MySqlDataReader sqlCmdRes = sqlCmd.ExecuteReader();
                 if (sqlCmdRes.HasRows)
+                {
                     while (sqlCmdRes.Read())
                     {
                         UserID = (int)sqlCmdRes[4];
                         FlightID = (int)sqlCmdRes[3];
                         UserDeparture = (string)sqlCmdRes[0];
                         UserArrival = (string)sqlCmdRes[1];
-                        UserAircraft = (string)sqlCmdRes[2];                       
+                        UserAircraft = (string)sqlCmdRes[2];
                     }
+                    conn.Close();
+                    conn.Open();
+                    MySqlCommand sqlCmd1 = new MySqlCommand(sqlInsertAssign, conn);
+                    sqlCmd1.Parameters.AddWithValue("@FlightID", FlightID);
+                    sqlCmd1.Parameters.AddWithValue("@UserID", UserID);
 
-                MySqlCommand sqlCmd1 = new MySqlCommand(sqlInsertAssign, conn);
-                sqlCmd1.Parameters.AddWithValue("@FlightID", FlightID);
-                sqlCmd1.Parameters.AddWithValue("@UserID", UserID);
-
-                sqlCmd1.ExecuteScalar();
+                    sqlCmd1.ExecuteScalar();
+                }
             }
             catch (Exception crap)
             {
@@ -474,7 +477,8 @@ group by
 
                 conn.Close();
             }
-        }
+        }        
+
     }
 }
 
