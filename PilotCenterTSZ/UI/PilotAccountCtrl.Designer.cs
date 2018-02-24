@@ -60,9 +60,10 @@
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblOverall = new System.Windows.Forms.Label();
-            this.cProgressBarOverall = new Bunifu.Framework.UI.BunifuCircleProgressbar();
             this.lblHourAward = new System.Windows.Forms.Label();
             this.cProgressHourAward = new Bunifu.Framework.UI.BunifuCircleProgressbar();
+            this.cProgressBarOverall = new Bunifu.Framework.UI.BunifuCircleProgressbar();
+            this.awardHourReceive = new PilotCenterTSZ.UI.AwardHourReceive();
             this.gBoxProfile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgRank)).BeginInit();
             this.gBoxTypeRatings.SuspendLayout();
@@ -411,28 +412,6 @@
             this.lblOverall.TabIndex = 103;
             this.lblOverall.Text = "Overall Efficiency";
             // 
-            // cProgressBarOverall
-            // 
-            this.cProgressBarOverall.animated = false;
-            this.cProgressBarOverall.animationIterval = 5;
-            this.cProgressBarOverall.animationSpeed = 300;
-            this.cProgressBarOverall.BackColor = System.Drawing.Color.Transparent;
-            this.cProgressBarOverall.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cProgressBarOverall.BackgroundImage")));
-            this.cProgressBarOverall.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cProgressBarOverall.ForeColor = System.Drawing.Color.SeaGreen;
-            this.cProgressBarOverall.LabelVisible = true;
-            this.cProgressBarOverall.LineProgressThickness = 8;
-            this.cProgressBarOverall.LineThickness = 5;
-            this.cProgressBarOverall.Location = new System.Drawing.Point(14, 365);
-            this.cProgressBarOverall.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
-            this.cProgressBarOverall.MaxValue = 100;
-            this.cProgressBarOverall.Name = "cProgressBarOverall";
-            this.cProgressBarOverall.ProgressBackColor = System.Drawing.Color.Gainsboro;
-            this.cProgressBarOverall.ProgressColor = System.Drawing.Color.SeaGreen;
-            this.cProgressBarOverall.Size = new System.Drawing.Size(129, 129);
-            this.cProgressBarOverall.TabIndex = 102;
-            this.cProgressBarOverall.Value = 0;
-            // 
             // lblHourAward
             // 
             this.lblHourAward.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -466,10 +445,44 @@
             this.cProgressHourAward.TabIndex = 104;
             this.cProgressHourAward.Value = 0;
             // 
+            // cProgressBarOverall
+            // 
+            this.cProgressBarOverall.animated = false;
+            this.cProgressBarOverall.animationIterval = 5;
+            this.cProgressBarOverall.animationSpeed = 300;
+            this.cProgressBarOverall.BackColor = System.Drawing.Color.Transparent;
+            this.cProgressBarOverall.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cProgressBarOverall.BackgroundImage")));
+            this.cProgressBarOverall.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cProgressBarOverall.ForeColor = System.Drawing.Color.SeaGreen;
+            this.cProgressBarOverall.LabelVisible = true;
+            this.cProgressBarOverall.LineProgressThickness = 8;
+            this.cProgressBarOverall.LineThickness = 5;
+            this.cProgressBarOverall.Location = new System.Drawing.Point(14, 365);
+            this.cProgressBarOverall.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cProgressBarOverall.MaxValue = 100;
+            this.cProgressBarOverall.Name = "cProgressBarOverall";
+            this.cProgressBarOverall.ProgressBackColor = System.Drawing.Color.Gainsboro;
+            this.cProgressBarOverall.ProgressColor = System.Drawing.Color.SeaGreen;
+            this.cProgressBarOverall.Size = new System.Drawing.Size(129, 129);
+            this.cProgressBarOverall.TabIndex = 102;
+            this.cProgressBarOverall.Value = 0;
+            // 
+            // awardHourReceive
+            // 
+            this.awardHourReceive.AwardEps = 0;
+            this.awardHourReceive.AwardID = 0;
+            this.awardHourReceive.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.awardHourReceive.Location = new System.Drawing.Point(144, 87);
+            this.awardHourReceive.Name = "awardHourReceive";
+            this.awardHourReceive.Size = new System.Drawing.Size(646, 325);
+            this.awardHourReceive.TabIndex = 106;
+            this.awardHourReceive.Visible = false;
+            // 
             // PilotAccountCtrl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.awardHourReceive);
             this.Controls.Add(this.lblHourAward);
             this.Controls.Add(this.cProgressHourAward);
             this.Controls.Add(this.lblOverall);
@@ -526,5 +539,6 @@
         private Bunifu.Framework.UI.BunifuCircleProgressbar cProgressBarOverall;
         private System.Windows.Forms.Label lblHourAward;
         private Bunifu.Framework.UI.BunifuCircleProgressbar cProgressHourAward;
+        private AwardHourReceive awardHourReceive;
     }
 }

@@ -152,8 +152,12 @@ namespace PilotCenterTSZ.UI
 
             lblHourAward.Text = String.Format("{0} Hour Award", h.AwardEps);
 
-            if (progressValue > 100)
+            if (progressValue >= 100)
+            {
                 cProgressHourAward.Value = 100;
+                awardHourReceive.GetAwardInformations(h.AwardEps, h.AwardMinHours, h.AwardID);
+                awardHourReceive.Show();
+            }
             else
                 cProgressHourAward.Value = progressValue;
 

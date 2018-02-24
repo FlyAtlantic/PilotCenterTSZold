@@ -78,6 +78,12 @@
     <Compile Include="PilotCenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\AwardHourReceive.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\AwardHourReceive.Designer.cs">
+      <DependentUpon>AwardHourReceive.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\PilotAccountCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -100,6 +106,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\AwardHourReceive.resx">
+      <DependentUpon>AwardHourReceive.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\PilotAccountCtrl.resx">
       <DependentUpon>PilotAccountCtrl.cs</DependentUpon>
     </EmbeddedResource>

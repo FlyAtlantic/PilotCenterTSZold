@@ -262,7 +262,35 @@ where user_email=@Email and qualification != 0",
             }
             catch (Exception crap)
             {
-                throw new ApplicationException("Failed to load exam @UserInfo()", crap);
+                throw new ApplicationException("Failed to load exam @UserHourAward()", crap);
+            }
+            finally
+            {
+
+                conn.Close();
+            }
+        }
+
+        public static void SendAwardEps(int awardID, int awardEps)
+        {
+            string sqlSendAwardEps = "Update utilizadores SET hour_award = @AwardID, eps = eps + @Eps where user_email = @Email LIMIT 1";
+
+            MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
+
+            try
+            {
+                conn.Open();
+
+                MySqlCommand sqlCmd = new MySqlCommand(sqlSendAwardEps, conn);
+                sqlCmd.Parameters.AddWithValue("@Email", Properties.Settings.Default.Email);
+                sqlCmd.Parameters.AddWithValue("@AwardID", awardID + 1);
+                sqlCmd.Parameters.AddWithValue("@Eps", awardEps);
+
+                sqlCmd.ExecuteScalar();
+            }
+            catch (Exception crap)
+            {
+                throw new ApplicationException("Failed to load exam @SendAwardEps()", crap);
             }
             finally
             {
