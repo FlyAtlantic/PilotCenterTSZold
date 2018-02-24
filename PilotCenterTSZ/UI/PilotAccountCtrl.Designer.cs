@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.gBoxProfile = new System.Windows.Forms.GroupBox();
+            this.imgRank = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lblEps = new System.Windows.Forms.Label();
             this.lblLocation = new System.Windows.Forms.Label();
@@ -52,10 +53,15 @@
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.imgRank = new System.Windows.Forms.PictureBox();
+            this.gBoxQualifications = new System.Windows.Forms.GroupBox();
+            this.listQualifications = new System.Windows.Forms.ListView();
+            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.gBoxProfile.SuspendLayout();
-            this.gBoxTypeRatings.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgRank)).BeginInit();
+            this.gBoxTypeRatings.SuspendLayout();
+            this.gBoxQualifications.SuspendLayout();
             this.SuspendLayout();
             // 
             // gBoxProfile
@@ -86,6 +92,15 @@
             this.gBoxProfile.TabIndex = 0;
             this.gBoxProfile.TabStop = false;
             this.gBoxProfile.Text = "Profile";
+            // 
+            // imgRank
+            // 
+            this.imgRank.Location = new System.Drawing.Point(78, 26);
+            this.imgRank.Name = "imgRank";
+            this.imgRank.Size = new System.Drawing.Size(100, 30);
+            this.imgRank.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.imgRank.TabIndex = 19;
+            this.imgRank.TabStop = false;
             // 
             // label4
             // 
@@ -300,7 +315,7 @@
             this.gBoxTypeRatings.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gBoxTypeRatings.Location = new System.Drawing.Point(293, 23);
             this.gBoxTypeRatings.Name = "gBoxTypeRatings";
-            this.gBoxTypeRatings.Size = new System.Drawing.Size(307, 262);
+            this.gBoxTypeRatings.Size = new System.Drawing.Size(307, 303);
             this.gBoxTypeRatings.TabIndex = 18;
             this.gBoxTypeRatings.TabStop = false;
             this.gBoxTypeRatings.Text = "TypeRatings";
@@ -317,7 +332,7 @@
             this.listTyperatings.MultiSelect = false;
             this.listTyperatings.Name = "listTyperatings";
             this.listTyperatings.Scrollable = false;
-            this.listTyperatings.Size = new System.Drawing.Size(295, 222);
+            this.listTyperatings.Size = new System.Drawing.Size(295, 263);
             this.listTyperatings.TabIndex = 0;
             this.listTyperatings.UseCompatibleStateImageBehavior = false;
             this.listTyperatings.View = System.Windows.Forms.View.Details;
@@ -337,19 +352,54 @@
             this.columnHeader3.Text = "Expiration";
             this.columnHeader3.Width = 86;
             // 
-            // imgRank
+            // gBoxQualifications
             // 
-            this.imgRank.Location = new System.Drawing.Point(78, 26);
-            this.imgRank.Name = "imgRank";
-            this.imgRank.Size = new System.Drawing.Size(100, 30);
-            this.imgRank.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.imgRank.TabIndex = 19;
-            this.imgRank.TabStop = false;
+            this.gBoxQualifications.Controls.Add(this.listQualifications);
+            this.gBoxQualifications.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gBoxQualifications.Location = new System.Drawing.Point(606, 23);
+            this.gBoxQualifications.Name = "gBoxQualifications";
+            this.gBoxQualifications.Size = new System.Drawing.Size(307, 303);
+            this.gBoxQualifications.TabIndex = 19;
+            this.gBoxQualifications.TabStop = false;
+            this.gBoxQualifications.Text = "Qualifications";
+            // 
+            // listQualifications
+            // 
+            this.listQualifications.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader4,
+            this.columnHeader5,
+            this.columnHeader6});
+            this.listQualifications.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listQualifications.FullRowSelect = true;
+            this.listQualifications.Location = new System.Drawing.Point(6, 34);
+            this.listQualifications.MultiSelect = false;
+            this.listQualifications.Name = "listQualifications";
+            this.listQualifications.Scrollable = false;
+            this.listQualifications.Size = new System.Drawing.Size(295, 263);
+            this.listQualifications.TabIndex = 0;
+            this.listQualifications.UseCompatibleStateImageBehavior = false;
+            this.listQualifications.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Qualification";
+            this.columnHeader4.Width = 130;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Validation";
+            this.columnHeader5.Width = 76;
+            // 
+            // columnHeader6
+            // 
+            this.columnHeader6.Text = "Expiration";
+            this.columnHeader6.Width = 86;
             // 
             // PilotAccountCtrl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.gBoxQualifications);
             this.Controls.Add(this.gBoxTypeRatings);
             this.Controls.Add(this.gBoxProfile);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -357,8 +407,9 @@
             this.Size = new System.Drawing.Size(935, 500);
             this.gBoxProfile.ResumeLayout(false);
             this.gBoxProfile.PerformLayout();
-            this.gBoxTypeRatings.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgRank)).EndInit();
+            this.gBoxTypeRatings.ResumeLayout(false);
+            this.gBoxQualifications.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -390,5 +441,10 @@
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
         private System.Windows.Forms.PictureBox imgRank;
+        private System.Windows.Forms.GroupBox gBoxQualifications;
+        private System.Windows.Forms.ListView listQualifications;
+        private System.Windows.Forms.ColumnHeader columnHeader4;
+        private System.Windows.Forms.ColumnHeader columnHeader5;
+        private System.Windows.Forms.ColumnHeader columnHeader6;
     }
 }

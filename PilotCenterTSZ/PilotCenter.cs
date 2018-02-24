@@ -123,4 +123,38 @@ where user_email=@Email",
                 }).ToList();
         }
     }
+
+    public class Qualification
+    {
+        public string QualificationName
+        { get; set; }
+
+        public DateTime Validity
+        { get; set; }
+
+        public DateTime Expiration
+        { get; set; }
+
+        public Qualification() { }
+
+        public static List<Qualification> Get()
+        {
+            return new MySqlConnection(Login.ConnectionString).Query<Qualification>(
+                @"
+SELECT
+    qualificationsname.name as QualificationName,
+    qualifications.validity as Validity,
+    qualifications.expire as Expiration
+from qualifications
+left join utilizadores
+    on qualifications.pilot = utilizadores.user_id
+left join qualificationsname
+    on qualifications.qualification = qualificationsname.id
+where user_email=@Email and qualification != 0",
+                new
+                {
+                    Email = Properties.Settings.Default.Email
+                }).ToList();
+        }
+    }
 }

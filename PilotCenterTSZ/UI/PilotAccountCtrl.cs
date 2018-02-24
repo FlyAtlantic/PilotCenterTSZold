@@ -19,6 +19,7 @@ namespace PilotCenterTSZ.UI
             InitializeComponent();
             PilotInfos();
             Typeratings();
+            Qualifications();
         }
 
         public void PilotInfos()
@@ -75,6 +76,24 @@ namespace PilotCenterTSZ.UI
                 listTyperatings.Items.Add(new ListViewItem(new string[]
                 {
                     t.TypeRatingName,
+                    t.Validity.ToString(@"dd-MM-yyyy"),
+                    t.Expiration.ToString(@"dd-MM-yyyy")
+
+                }));
+
+            }
+        }
+
+        public void Qualifications()
+        {
+
+            foreach (Qualification t in Qualification.Get())
+            {
+                listQualifications.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
+                listQualifications.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+                listQualifications.Items.Add(new ListViewItem(new string[]
+                {
+                    t.QualificationName,
                     t.Validity.ToString(@"dd-MM-yyyy"),
                     t.Expiration.ToString(@"dd-MM-yyyy")
 
