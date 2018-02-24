@@ -23,7 +23,7 @@ namespace PilotCenterTSZ.UI
 
             var a = this.Parent as MyLogBookCtrl;
 
-            a.Show();
+            a.lstLogBook.Show();
 
 
         }

@@ -6,7 +6,7 @@
         #region Component Designer generated code
 
         #endregion
-        private System.Windows.Forms.ListView lstLogBook;
+        public System.Windows.Forms.ListView lstLogBook;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;

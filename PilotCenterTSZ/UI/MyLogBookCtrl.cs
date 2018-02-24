@@ -43,7 +43,7 @@ namespace PilotCenterTSZ.UI
 
         private void lstLogBook_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            Hide();
+            lstLogBook.Hide();
 
             myFlightView.Show();
         }
@@ -75,10 +75,10 @@ namespace PilotCenterTSZ.UI
             this.columnHeader8});
             this.lstLogBook.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstLogBook.FullRowSelect = true;
-            this.lstLogBook.Location = new System.Drawing.Point(72, 3);
+            this.lstLogBook.Location = new System.Drawing.Point(87, 3);
             this.lstLogBook.MultiSelect = false;
             this.lstLogBook.Name = "lstLogBook";
-            this.lstLogBook.Size = new System.Drawing.Size(491, 517);
+            this.lstLogBook.Size = new System.Drawing.Size(506, 513);
             this.lstLogBook.TabIndex = 0;
             this.lstLogBook.UseCompatibleStateImageBehavior = false;
             this.lstLogBook.View = System.Windows.Forms.View.Details;
@@ -118,7 +118,7 @@ namespace PilotCenterTSZ.UI
             // 
             // myFlightView
             // 
-            this.myFlightView.Location = new System.Drawing.Point(16, 20);
+            this.myFlightView.Location = new System.Drawing.Point(0, 16);
             this.myFlightView.Name = "myFlightView";
             this.myFlightView.Size = new System.Drawing.Size(935, 500);
             this.myFlightView.TabIndex = 1;
@@ -131,7 +131,7 @@ namespace PilotCenterTSZ.UI
             this.Controls.Add(this.myFlightView);
             this.Controls.Add(this.lstLogBook);
             this.Name = "MyLogBookCtrl";
-            this.Size = new System.Drawing.Size(970, 567);
+            this.Size = new System.Drawing.Size(935, 533);
             this.ResumeLayout(false);
 
         }
