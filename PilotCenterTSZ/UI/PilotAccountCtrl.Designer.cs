@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PilotAccountCtrl));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.gBoxProfile = new System.Windows.Forms.GroupBox();
             this.imgRank = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -64,10 +67,12 @@
             this.cProgressHourAward = new Bunifu.Framework.UI.BunifuCircleProgressbar();
             this.cProgressBarOverall = new Bunifu.Framework.UI.BunifuCircleProgressbar();
             this.awardHourReceive = new PilotCenterTSZ.UI.AwardHourReceive();
+            this.chartFlightsDay = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.gBoxProfile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgRank)).BeginInit();
             this.gBoxTypeRatings.SuspendLayout();
             this.gBoxQualifications.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chartFlightsDay)).BeginInit();
             this.SuspendLayout();
             // 
             // gBoxProfile
@@ -478,11 +483,28 @@
             this.awardHourReceive.TabIndex = 106;
             this.awardHourReceive.Visible = false;
             // 
+            // chartFlightsDay
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chartFlightsDay.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartFlightsDay.Legends.Add(legend1);
+            this.chartFlightsDay.Location = new System.Drawing.Point(293, 332);
+            this.chartFlightsDay.Name = "chartFlightsDay";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartFlightsDay.Series.Add(series1);
+            this.chartFlightsDay.Size = new System.Drawing.Size(620, 162);
+            this.chartFlightsDay.TabIndex = 107;
+            this.chartFlightsDay.Text = "chart1";
+            // 
             // PilotAccountCtrl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.awardHourReceive);
+            this.Controls.Add(this.chartFlightsDay);
             this.Controls.Add(this.lblHourAward);
             this.Controls.Add(this.cProgressHourAward);
             this.Controls.Add(this.lblOverall);
@@ -498,6 +520,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.imgRank)).EndInit();
             this.gBoxTypeRatings.ResumeLayout(false);
             this.gBoxQualifications.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.chartFlightsDay)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -540,5 +563,6 @@
         private System.Windows.Forms.Label lblHourAward;
         private Bunifu.Framework.UI.BunifuCircleProgressbar cProgressHourAward;
         private AwardHourReceive awardHourReceive;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartFlightsDay;
     }
 }

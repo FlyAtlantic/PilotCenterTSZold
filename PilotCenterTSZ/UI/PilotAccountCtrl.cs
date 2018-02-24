@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace PilotCenterTSZ.UI
 {
@@ -21,6 +22,7 @@ namespace PilotCenterTSZ.UI
             Qualifications();
             Efficiency();
             AwardHour();
+            FlightsOnDayGraphic();
         }
 
         public void Actions()
@@ -30,6 +32,7 @@ namespace PilotCenterTSZ.UI
             Qualifications();
             Efficiency();
             AwardHour();
+            FlightsOnDayGraphic();
         }
 
         public void PilotInfos()
@@ -161,6 +164,51 @@ namespace PilotCenterTSZ.UI
             else
                 cProgressHourAward.Value = progressValue;
 
+
+        }
+
+        public void FlightsOnDayGraphic()
+        {
+            var chart = chartFlightsDay.ChartAreas[0];
+            chart.AxisX.IntervalType = DateTimeIntervalType.Number;
+
+            chart.AxisX.LabelStyle.Format = "";
+            chart.AxisY.LabelStyle.Format = "";
+            chart.AxisY.LabelStyle.IsEndLabelVisible = true;
+
+            chart.AxisX.Minimum = 1;
+            chart.AxisX.Maximum = 31;
+            chart.AxisX.Interval = 2;
+
+            chartFlightsDay.Series.Clear();
+            chartFlightsDay.Series.Add("# Flights per day");
+            chartFlightsDay.Series["# Flights per day"].ChartType = SeriesChartType.RangeColumn;
+            chartFlightsDay.Series["# Flights per day"].Color = Color.MediumBlue;
+            chartFlightsDay.Series[0].IsVisibleInLegend = false;
+
+            foreach (UserStatistics s in UserStatistics.Get())
+            {
+                chartFlightsDay.Series["# Flights per day"].Points.AddXY(s.Day, s.NumFlights);
+
+                if (s.NumFlights < 5 )
+                {
+                    chart.AxisY.Minimum = 0;
+                    chart.AxisY.Maximum = 5;
+                    chart.AxisY.Interval = 1;
+                }
+                else if (s.NumFlights >= 5 && s.NumFlights < 10)
+                {
+                    chart.AxisY.Minimum = 0;
+                    chart.AxisY.Maximum = 10;
+                    chart.AxisY.Interval = 1;
+                }
+                else if (s.NumFlights >= 10 && s.NumFlights < 20)
+                {
+                    chart.AxisY.Minimum = 0;
+                    chart.AxisY.Maximum = 20;
+                    chart.AxisY.Interval = 2;
+                }
+            }
 
         }
     }

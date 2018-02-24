@@ -299,4 +299,45 @@ where user_email=@Email and qualification != 0",
             }
         }
     }
+
+    public class UserStatistics
+    {
+        public int Day
+        { get; set; }
+
+        public int NumFlights
+        { get; set; }
+
+        public UserStatistics()
+        {
+
+        }
+
+        public static List<UserStatistics> Get()
+        {
+            return new MySqlConnection(Login.ConnectionString).Query<UserStatistics>(
+                @"
+select 
+    DAY(date) as Day, COUNT(date) as NumFlights
+from
+    pireps 
+left join
+    utilizadores
+on
+    pireps.pilotid = utilizadores.user_id
+where 
+    accepted = 1 
+and 
+    user_email=@Email 
+and 
+    MONTH(date) = MONTH(CURRENT_DATE()) 
+group by 
+    DAY(date)",
+                new
+                {
+                    Email = Properties.Settings.Default.Email
+                }).ToList();
+        }
+    }
 }
+
