@@ -71,6 +71,9 @@
 			<Component Id="ExamCenterUpdate">
 				<File Name="ExamCenterUpdate.dll" Source="$(var.PilotCenterTSZ.TargetDir)\ExamCenterUpdate.dll" />
 			</Component>
+			<Component Id="Dapper">
+				<File Name="Dapper.dll" Source="$(var.PilotCenterTSZ.TargetDir)\Dapper.dll" />
+			</Component>
 		</ComponentGroup>
 	</Fragment>
 </Wix>
