@@ -31,9 +31,11 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pMenuBar = new System.Windows.Forms.Panel();
+            this.btnRefresh = new Bunifu.Framework.UI.BunifuTileButton();
             this.lblWelcome = new System.Windows.Forms.Label();
-            this.pilotAccountCtrl1 = new PilotCenterTSZ.UI.PilotAccountCtrl();
+            this.pilotAccountCtrl = new PilotCenterTSZ.UI.PilotAccountCtrl();
             this.panel1.SuspendLayout();
+            this.pMenuBar.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -60,11 +62,32 @@
             // pMenuBar
             // 
             this.pMenuBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.pMenuBar.Controls.Add(this.btnRefresh);
             this.pMenuBar.Dock = System.Windows.Forms.DockStyle.Left;
             this.pMenuBar.Location = new System.Drawing.Point(0, 77);
             this.pMenuBar.Name = "pMenuBar";
             this.pMenuBar.Size = new System.Drawing.Size(211, 579);
             this.pMenuBar.TabIndex = 97;
+            // 
+            // btnRefresh
+            // 
+            this.btnRefresh.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.btnRefresh.color = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.btnRefresh.colorActive = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.btnRefresh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRefresh.Font = new System.Drawing.Font("Century Gothic", 15.75F);
+            this.btnRefresh.ForeColor = System.Drawing.Color.White;
+            this.btnRefresh.Image = global::PilotCenterTSZ.Properties.Resources.refreshImg;
+            this.btnRefresh.ImagePosition = 0;
+            this.btnRefresh.ImageZoom = 95;
+            this.btnRefresh.LabelPosition = 0;
+            this.btnRefresh.LabelText = "";
+            this.btnRefresh.Location = new System.Drawing.Point(68, 15);
+            this.btnRefresh.Margin = new System.Windows.Forms.Padding(6);
+            this.btnRefresh.Name = "btnRefresh";
+            this.btnRefresh.Size = new System.Drawing.Size(74, 64);
+            this.btnRefresh.TabIndex = 2;
+            this.btnRefresh.Click += new System.EventHandler(this.btnRefresh_Click);
             // 
             // lblWelcome
             // 
@@ -76,13 +99,13 @@
             this.lblWelcome.TabIndex = 98;
             this.lblWelcome.Text = "Welcome";
             // 
-            // pilotAccountCtrl1
+            // pilotAccountCtrl
             // 
-            this.pilotAccountCtrl1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pilotAccountCtrl1.Location = new System.Drawing.Point(214, 123);
-            this.pilotAccountCtrl1.Name = "pilotAccountCtrl1";
-            this.pilotAccountCtrl1.Size = new System.Drawing.Size(935, 500);
-            this.pilotAccountCtrl1.TabIndex = 99;
+            this.pilotAccountCtrl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pilotAccountCtrl.Location = new System.Drawing.Point(214, 123);
+            this.pilotAccountCtrl.Name = "pilotAccountCtrl1";
+            this.pilotAccountCtrl.Size = new System.Drawing.Size(935, 500);
+            this.pilotAccountCtrl.TabIndex = 99;
             // 
             // Dashboard
             // 
@@ -90,16 +113,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1149, 656);
-            this.Controls.Add(this.pilotAccountCtrl1);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.pMenuBar);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pilotAccountCtrl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.pMenuBar.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -111,7 +135,8 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel pMenuBar;
         private System.Windows.Forms.Label lblWelcome;
-        private UI.PilotAccountCtrl pilotAccountCtrl1;
+        private Bunifu.Framework.UI.BunifuTileButton btnRefresh;
+        private UI.PilotAccountCtrl pilotAccountCtrl;
     }
 }
 

@@ -253,6 +253,16 @@ namespace PilotCenterTSZ.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap refreshImg {
+            get {
+                object obj = ResourceManager.GetObject("refreshImg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap RJ1H {
             get {
                 object obj = ResourceManager.GetObject("RJ1H", resourceCulture);

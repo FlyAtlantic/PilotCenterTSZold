@@ -142,6 +142,7 @@
     <Content Include="docs\MySqlParameter.xml" />
     <Content Include="docs\MySqlParameterCollection.xml" />
     <Content Include="docs\MySqlTransaction.xml" />
+    <None Include="Resources\refreshImg.png" />
     <None Include="Resources\seniorinstructor.png" />
     <None Include="Resources\seniorcaptain.png" />
     <None Include="Resources\fleetcaptain.png" />
