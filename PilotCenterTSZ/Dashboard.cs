@@ -10,12 +10,16 @@ using System.Windows.Forms;
 
 namespace PilotCenterTSZ
 {
-    public partial class Form1 : Form
+    public partial class Dashboard : Form
     {
-        public Form1()
+        UserInfo a = new UserInfo();
+
+        public Dashboard()
         {
             InitializeComponent();
 
+            lblWelcome.Text = String.Format("Have a nice {0}, {1} {2} {3}", DateTime.UtcNow.DayOfWeek.ToString(), a.Rank, a.UserName, a.UserSurname);
         }
+      
     }
 }
