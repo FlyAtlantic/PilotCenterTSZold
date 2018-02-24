@@ -79,11 +79,29 @@
     <Compile Include="PilotCenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\AssingmentCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\AssingmentCtrl.Designer.cs">
+      <DependentUpon>AssingmentCtrl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\AwardHourReceive.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="UI\AwardHourReceive.Designer.cs">
       <DependentUpon>AwardHourReceive.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FlightAssignedCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\FlightAssignedCtrl.Designer.cs">
+      <DependentUpon>FlightAssignedCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FlightAssignmentCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\FlightAssignmentCtrl.Designer.cs">
+      <DependentUpon>FlightAssignmentCtrl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\PilotAccountCtrl.cs">
       <SubType>UserControl</SubType>
@@ -107,8 +125,17 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="UI\AssingmentCtrl.resx">
+      <DependentUpon>AssingmentCtrl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\AwardHourReceive.resx">
       <DependentUpon>AwardHourReceive.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FlightAssignedCtrl.resx">
+      <DependentUpon>FlightAssignedCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FlightAssignmentCtrl.resx">
+      <DependentUpon>FlightAssignmentCtrl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\PilotAccountCtrl.resx">
       <DependentUpon>PilotAccountCtrl.cs</DependentUpon>

@@ -339,5 +339,142 @@ group by
                 }).ToList();
         }
     }
+
+    public class AssignFlight
+    {
+        public static int UserID
+        { get; set; }
+
+        public int FlightID
+        { get; set; }
+
+        public string FlightCallsign
+        { get; set; }
+
+        public string UserDeparture
+        { get; set; }
+
+        public string UserArrival
+        { get; set; }
+
+        public string UserAircraft
+        { get; set; }
+
+        public DateTime UserDateAssign
+        { get; set; }
+
+        public AssignFlight()
+        {
+
+        }
+
+        public void VerifyFlightAssign()
+        {
+            string sqlVerifyFlightAssign = "select departure, destination, aircraft, idf, user_id, date_assigned, flights.callsign from pilotassignments LEFT JOIN flights ON pilotassignments.flightid = flights.idf left join utilizadores on pilotassignments.pilot = utilizadores.user_id where user_email=@Email LIMIT 1";
+            MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
+
+            try
+            {
+                conn.Open();
+
+                MySqlCommand sqlCmd = new MySqlCommand(sqlVerifyFlightAssign, conn);
+                sqlCmd.Parameters.AddWithValue("@Email", Properties.Settings.Default.Email);
+
+                MySqlDataReader sqlCmdRes = sqlCmd.ExecuteReader();
+                if (sqlCmdRes.HasRows)
+                    while (sqlCmdRes.Read())
+                    {
+                        UserID = (int)sqlCmdRes[4];
+                        FlightID = (int)sqlCmdRes[3];
+                        UserDeparture = (string)sqlCmdRes[0];
+                        UserArrival = (string)sqlCmdRes[1];
+                        UserAircraft = (string)sqlCmdRes[2];
+                        UserDateAssign = (DateTime)sqlCmdRes[5];
+                        FlightCallsign = (string)sqlCmdRes[6];
+                    }
+                
+            }
+            catch (Exception crap)
+            {
+                throw new ApplicationException("Failed to load exam @UserInfo()", crap);
+            }
+            finally
+            {
+
+                conn.Close();
+            }
+        }
+
+        public void RandAssignFlight(string userLocation, int aircraft, DateTime flightTime)
+        {
+            string sqlRandAssignFlight = "select departure, destination, aircraft, idf, user_id  from qualifications inner join flights on qualifications.qualification = flights.qualification_need left join utilizadores on qualifications.pilot = utilizadores.user_id where user_email = @Email and aircraft=@Aircraft and flighttime<=@FlightTime and departure =@Location ORDER BY RAND() LIMIT 1";
+            string sqlInsertAssign = "INSERT INTO `pilotassignments` (`flightid`, `pilot`, `date_assigned`) VALUES (@FlightID, @UserID, NOW())";
+            MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
+
+            try
+            {
+                conn.Open();
+
+                MySqlCommand sqlCmd = new MySqlCommand(sqlRandAssignFlight, conn);
+                sqlCmd.Parameters.AddWithValue("@Email", Properties.Settings.Default.Email);
+                sqlCmd.Parameters.AddWithValue("@Aircraft", flightTime);
+                sqlCmd.Parameters.AddWithValue("@FlightTime", aircraft);
+                sqlCmd.Parameters.AddWithValue("@Location", userLocation);
+
+                MySqlDataReader sqlCmdRes = sqlCmd.ExecuteReader();
+                if (sqlCmdRes.HasRows)
+                    while (sqlCmdRes.Read())
+                    {
+                        UserID = (int)sqlCmdRes[4];
+                        FlightID = (int)sqlCmdRes[3];
+                        UserDeparture = (string)sqlCmdRes[0];
+                        UserArrival = (string)sqlCmdRes[1];
+                        UserAircraft = (string)sqlCmdRes[2];                       
+                    }
+
+                MySqlCommand sqlCmd1 = new MySqlCommand(sqlInsertAssign, conn);
+                sqlCmd1.Parameters.AddWithValue("@FlightID", FlightID);
+                sqlCmd1.Parameters.AddWithValue("@UserID", UserID);
+
+                sqlCmd1.ExecuteScalar();
+            }
+            catch (Exception crap)
+            {
+                throw new ApplicationException("Failed to load exam @UserInfo()", crap);
+            }
+            finally
+            {
+
+                conn.Close();
+            }
+        }
+
+        public static void VerifyFlightTimeOut()
+        {
+
+            string sqlDeleteAssignment = "DELETE FROM pilotassignments WHERE pilot=@UserID and NOW() >=  DATE_ADD(date_assigned, INTERVAL 30 MINUTE) LIMIT 1";
+            MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
+
+            try
+            {
+                conn.Open();
+
+                MySqlCommand sqlCmd = new MySqlCommand(sqlDeleteAssignment, conn);
+                sqlCmd.Parameters.AddWithValue("@UserID", UserID);
+
+                sqlCmd.ExecuteScalar();
+
+            }
+            catch (Exception crap)
+            {
+                throw new ApplicationException("Failed to load exam @sqlDeleteAssignment()", crap);
+            }
+            finally
+            {
+
+                conn.Close();
+            }
+        }
+    }
 }
 
