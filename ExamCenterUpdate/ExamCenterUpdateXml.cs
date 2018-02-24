@@ -86,7 +86,7 @@ namespace ExamCenterUpdate
                 XmlDocument doc = new XmlDocument();
                 doc.Load(location.AbsoluteUri);
 
-                XmlNode node = doc.DocumentElement.SelectSingleNode("//updateExamCenter[@appID='" + appID + "']");
+                XmlNode node = doc.DocumentElement.SelectSingleNode("//updatePilotCenter[@appID='" + appID + "']");
 
                 if (node == null)
                     return null;

@@ -50,7 +50,7 @@ namespace PilotCenterTSZ
 
         public Uri UpdateXmlLocation
         {
-            get { return new Uri("http://flyatlantic-va.com/site/programsC/updatePilotCenter.xml"); }
+            get { return new Uri("http://flyatlantic-va.com/site/programsC/complete/updatePilotCenter.xml"); }
         }
 
         public Form Context
