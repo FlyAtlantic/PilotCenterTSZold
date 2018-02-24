@@ -67,7 +67,7 @@ namespace PilotCenterTSZ.UI
             {
                 conn.Open();
 
-                string sqlFlightTime = "select HOUR(DATE_ADD(flighttime, INTERVAL 1 HOUR)) as time, SEC_TO_TIME((TIME_TO_SEC(DATE_ADD(flighttime, INTERVAL 1 HOUR))DIV 3600) * 3600) as timevalue from flights left join typeratingsname on flights.aircraft = typeratingsname.name where aircraft = @Aircraft and departure=@Location and HOUR(flighttime) >= 2 group by HOUR(flighttime)";
+                string sqlFlightTime = "select HOUR(DATE_ADD(flighttime, INTERVAL 1 HOUR)) as time, SEC_TO_TIME((TIME_TO_SEC(DATE_ADD(flighttime, INTERVAL 1 HOUR))DIV 3600) * 3600) as timevalue from flights left join typeratingsname on flights.aircraft = typeratingsname.name where aircraft = @Aircraft and departure=@Location and HOUR(DATE_ADD(flighttime, INTERVAL 1 HOUR)) >= 2 group by HOUR(flighttime)";
 
                 MySqlCommand sqlCmd = new MySqlCommand(sqlFlightTime, conn);
                 sqlCmd.Parameters.AddWithValue("@Aircraft", aircraft);

@@ -286,6 +286,7 @@
             this.myLogBookCtrl.Name = "myLogBookCtrl";
             this.myLogBookCtrl.Size = new System.Drawing.Size(678, 429);
             this.myLogBookCtrl.TabIndex = 99;
+            this.myLogBookCtrl.Visible = false;
             // 
             // flightAssignmentCtrl
             // 
