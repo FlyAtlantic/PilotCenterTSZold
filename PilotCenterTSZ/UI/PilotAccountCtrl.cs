@@ -190,7 +190,7 @@ namespace PilotCenterTSZ.UI
             {
                 chartFlightsDay.Series["# Flights per day"].Points.AddXY(s.Day, s.NumFlights);
 
-                if (s.NumFlights < 5 )
+                if (s.NumFlights < 5)
                 {
                     chart.AxisY.Minimum = 0;
                     chart.AxisY.Maximum = 5;
