@@ -61,6 +61,8 @@
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblOverall = new System.Windows.Forms.Label();
             this.cProgressBarOverall = new Bunifu.Framework.UI.BunifuCircleProgressbar();
+            this.lblHourAward = new System.Windows.Forms.Label();
+            this.cProgressHourAward = new Bunifu.Framework.UI.BunifuCircleProgressbar();
             this.gBoxProfile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgRank)).BeginInit();
             this.gBoxTypeRatings.SuspendLayout();
@@ -431,10 +433,45 @@
             this.cProgressBarOverall.TabIndex = 102;
             this.cProgressBarOverall.Value = 0;
             // 
+            // lblHourAward
+            // 
+            this.lblHourAward.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHourAward.ForeColor = System.Drawing.Color.Chocolate;
+            this.lblHourAward.Location = new System.Drawing.Point(152, 344);
+            this.lblHourAward.Name = "lblHourAward";
+            this.lblHourAward.Size = new System.Drawing.Size(132, 15);
+            this.lblHourAward.TabIndex = 105;
+            this.lblHourAward.Text = "XX Hour Award";
+            this.lblHourAward.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // cProgressHourAward
+            // 
+            this.cProgressHourAward.animated = false;
+            this.cProgressHourAward.animationIterval = 5;
+            this.cProgressHourAward.animationSpeed = 300;
+            this.cProgressHourAward.BackColor = System.Drawing.Color.Transparent;
+            this.cProgressHourAward.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cProgressHourAward.BackgroundImage")));
+            this.cProgressHourAward.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cProgressHourAward.ForeColor = System.Drawing.Color.SeaGreen;
+            this.cProgressHourAward.LabelVisible = true;
+            this.cProgressHourAward.LineProgressThickness = 8;
+            this.cProgressHourAward.LineThickness = 5;
+            this.cProgressHourAward.Location = new System.Drawing.Point(155, 365);
+            this.cProgressHourAward.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cProgressHourAward.MaxValue = 100;
+            this.cProgressHourAward.Name = "cProgressHourAward";
+            this.cProgressHourAward.ProgressBackColor = System.Drawing.Color.Gainsboro;
+            this.cProgressHourAward.ProgressColor = System.Drawing.Color.SeaGreen;
+            this.cProgressHourAward.Size = new System.Drawing.Size(129, 129);
+            this.cProgressHourAward.TabIndex = 104;
+            this.cProgressHourAward.Value = 0;
+            // 
             // PilotAccountCtrl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblHourAward);
+            this.Controls.Add(this.cProgressHourAward);
             this.Controls.Add(this.lblOverall);
             this.Controls.Add(this.gBoxQualifications);
             this.Controls.Add(this.cProgressBarOverall);
@@ -487,5 +524,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader6;
         private System.Windows.Forms.Label lblOverall;
         private Bunifu.Framework.UI.BunifuCircleProgressbar cProgressBarOverall;
+        private System.Windows.Forms.Label lblHourAward;
+        private Bunifu.Framework.UI.BunifuCircleProgressbar cProgressHourAward;
     }
 }

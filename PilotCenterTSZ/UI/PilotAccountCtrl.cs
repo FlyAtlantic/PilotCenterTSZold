@@ -20,6 +20,7 @@ namespace PilotCenterTSZ.UI
             Typeratings();
             Qualifications();
             Efficiency();
+            AwardHour();
         }
 
         public void Actions()
@@ -28,6 +29,7 @@ namespace PilotCenterTSZ.UI
             Typeratings();
             Qualifications();
             Efficiency();
+            AwardHour();
         }
 
         public void PilotInfos()
@@ -138,6 +140,24 @@ namespace PilotCenterTSZ.UI
                 cProgressBarOverall.ForeColor = Color.ForestGreen;
                 cProgressBarOverall.ProgressColor = Color.ForestGreen;
             }
+        }
+
+        public void AwardHour()
+        {
+            UserInfo a = new UserInfo();
+            UserHourAward h = new UserHourAward();
+
+            double flightHours = Convert.ToDouble(a.PilotHours.TotalHours.ToString());
+            int progressValue = (Convert.ToInt32(Math.Truncate(flightHours)) * 100) / h.AwardMinHours;
+
+            lblHourAward.Text = String.Format("{0} Hour Award", h.AwardEps);
+
+            if (progressValue > 100)
+                cProgressHourAward.Value = 100;
+            else
+                cProgressHourAward.Value = progressValue;
+
+
         }
     }
 }

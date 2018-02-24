@@ -205,4 +205,70 @@ where user_email=@Email and qualification != 0",
             }
         }
     }
+
+    public class UserHourAward
+    {
+        public int AwardID
+        { get; set; }
+
+        public int AwardMinHours
+        { get; set; }
+
+        public int AwardEps
+        { get; set; }
+
+        public UserHourAward()
+        {
+
+
+            string sqlAwardID = "Select hour_award from utilizadores where user_email = @Email";
+
+            MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
+
+            try
+            {
+                conn.Open();
+
+                MySqlCommand sqlCmd = new MySqlCommand(sqlAwardID, conn);
+                sqlCmd.Parameters.AddWithValue("@Email", Properties.Settings.Default.Email);
+
+                MySqlDataReader sqlCmdRes = sqlCmd.ExecuteReader();
+                if (sqlCmdRes.HasRows)
+                    while (sqlCmdRes.Read())
+                    {
+                        AwardID = (int)sqlCmdRes[0];
+
+                        if (AwardID == 0)
+                        {
+                            AwardMinHours = 25;
+                            AwardEps = 25;
+                        }
+                        else if (AwardID == 1)
+                        {
+                            AwardMinHours = 50;
+                            AwardEps = 50;
+                        }
+                        else if (AwardID == 2)
+                        {
+                            AwardMinHours = 75;
+                            AwardEps = 75;
+                        }
+                        else if (AwardID == 3)
+                        {
+                            AwardMinHours = 100;
+                            AwardEps = 100;
+                        }
+                    }
+            }
+            catch (Exception crap)
+            {
+                throw new ApplicationException("Failed to load exam @UserInfo()", crap);
+            }
+            finally
+            {
+
+                conn.Close();
+            }
+        }
+    }
 }
