@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PilotAccountCtrl));
             this.gBoxProfile = new System.Windows.Forms.GroupBox();
             this.imgRank = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -58,6 +59,8 @@
             this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.lblOverall = new System.Windows.Forms.Label();
+            this.cProgressBarOverall = new Bunifu.Framework.UI.BunifuCircleProgressbar();
             this.gBoxProfile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgRank)).BeginInit();
             this.gBoxTypeRatings.SuspendLayout();
@@ -395,11 +398,46 @@
             this.columnHeader6.Text = "Expiration";
             this.columnHeader6.Width = 86;
             // 
+            // lblOverall
+            // 
+            this.lblOverall.AutoSize = true;
+            this.lblOverall.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblOverall.ForeColor = System.Drawing.Color.Chocolate;
+            this.lblOverall.Location = new System.Drawing.Point(26, 346);
+            this.lblOverall.Name = "lblOverall";
+            this.lblOverall.Size = new System.Drawing.Size(104, 15);
+            this.lblOverall.TabIndex = 103;
+            this.lblOverall.Text = "Overall Efficiency";
+            // 
+            // cProgressBarOverall
+            // 
+            this.cProgressBarOverall.animated = false;
+            this.cProgressBarOverall.animationIterval = 5;
+            this.cProgressBarOverall.animationSpeed = 300;
+            this.cProgressBarOverall.BackColor = System.Drawing.Color.Transparent;
+            this.cProgressBarOverall.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("cProgressBarOverall.BackgroundImage")));
+            this.cProgressBarOverall.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cProgressBarOverall.ForeColor = System.Drawing.Color.SeaGreen;
+            this.cProgressBarOverall.LabelVisible = true;
+            this.cProgressBarOverall.LineProgressThickness = 8;
+            this.cProgressBarOverall.LineThickness = 5;
+            this.cProgressBarOverall.Location = new System.Drawing.Point(14, 365);
+            this.cProgressBarOverall.Margin = new System.Windows.Forms.Padding(6, 6, 6, 6);
+            this.cProgressBarOverall.MaxValue = 100;
+            this.cProgressBarOverall.Name = "cProgressBarOverall";
+            this.cProgressBarOverall.ProgressBackColor = System.Drawing.Color.Gainsboro;
+            this.cProgressBarOverall.ProgressColor = System.Drawing.Color.SeaGreen;
+            this.cProgressBarOverall.Size = new System.Drawing.Size(129, 129);
+            this.cProgressBarOverall.TabIndex = 102;
+            this.cProgressBarOverall.Value = 0;
+            // 
             // PilotAccountCtrl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblOverall);
             this.Controls.Add(this.gBoxQualifications);
+            this.Controls.Add(this.cProgressBarOverall);
             this.Controls.Add(this.gBoxTypeRatings);
             this.Controls.Add(this.gBoxProfile);
             this.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -411,6 +449,7 @@
             this.gBoxTypeRatings.ResumeLayout(false);
             this.gBoxQualifications.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -446,5 +485,7 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Windows.Forms.Label lblOverall;
+        private Bunifu.Framework.UI.BunifuCircleProgressbar cProgressBarOverall;
     }
 }

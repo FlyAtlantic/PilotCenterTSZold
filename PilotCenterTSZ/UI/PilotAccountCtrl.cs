@@ -12,7 +12,6 @@ namespace PilotCenterTSZ.UI
 {
     public partial class PilotAccountCtrl : UserControl
     {
-        UserInfo a = new UserInfo();
 
         public PilotAccountCtrl()
         {
@@ -20,10 +19,21 @@ namespace PilotCenterTSZ.UI
             PilotInfos();
             Typeratings();
             Qualifications();
+            Efficiency();
+        }
+
+        public void Actions()
+        {
+            PilotInfos();
+            Typeratings();
+            Qualifications();
+            Efficiency();
         }
 
         public void PilotInfos()
         {
+            UserInfo a = new UserInfo();
+
             double flightHours = Convert.ToDouble(a.PilotHours.TotalHours.ToString());
             double flightMinutes = Convert.ToDouble(a.PilotHours.Minutes);
 
@@ -68,7 +78,7 @@ namespace PilotCenterTSZ.UI
 
         public void Typeratings()
         {
-
+            listTyperatings.Items.Clear();
             foreach (TypeRating t in TypeRating.Get())
             {
                 listTyperatings.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
@@ -86,7 +96,7 @@ namespace PilotCenterTSZ.UI
 
         public void Qualifications()
         {
-
+            listQualifications.Items.Clear();
             foreach (Qualification t in Qualification.Get())
             {
                 listQualifications.AutoResizeColumns(ColumnHeaderAutoResizeStyle.ColumnContent);
@@ -99,6 +109,34 @@ namespace PilotCenterTSZ.UI
 
                 }));
 
+            }
+        }
+
+        public void Efficiency()
+        {
+            UserOverallEfficiency h = new UserOverallEfficiency();
+
+            cProgressBarOverall.Value = h.Efficiency;
+
+            if (h.Efficiency < 25)
+            {
+                cProgressBarOverall.ForeColor = Color.Firebrick;
+                cProgressBarOverall.ProgressColor = Color.Firebrick;
+            }
+            if (h.Efficiency < 50 && h.Efficiency >= 25)
+            {
+                cProgressBarOverall.ForeColor = Color.Chocolate;
+                cProgressBarOverall.ProgressColor = Color.Chocolate;
+            }
+            if (h.Efficiency < 75 && h.Efficiency >= 50)
+            {
+                cProgressBarOverall.ForeColor = Color.Goldenrod;
+                cProgressBarOverall.ProgressColor = Color.Goldenrod;
+            }
+            if (h.Efficiency < 100 && h.Efficiency >= 75)
+            {
+                cProgressBarOverall.ForeColor = Color.ForestGreen;
+                cProgressBarOverall.ProgressColor = Color.ForestGreen;
             }
         }
     }

@@ -157,4 +157,52 @@ where user_email=@Email and qualification != 0",
                 }).ToList();
         }
     }
+
+    public class UserOverallEfficiency
+    {
+        public int PirepsCount
+        { get; set; }
+
+        public int PirepsCountSum
+        { get; set; }
+
+        public int Efficiency
+        { get; set; }
+
+        public UserOverallEfficiency()
+        {
+
+
+            string sqlPirepsCount = "SELECT COUNT(*) FROM `pireps` left join utilizadores on user_id = pireps.pilotid WHERE user_email=@Email and accepted = 1";
+            string sqlPirepsCountSum = "SELECT SUM(sum) FROM `pireps` left join utilizadores on user_id = pireps.pilotid WHERE user_email=@Email and accepted = 1";
+            MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
+
+            try
+            {
+                conn.Open();
+
+                MySqlCommand sqlCmd = new MySqlCommand(sqlPirepsCount, conn);
+                sqlCmd.Parameters.AddWithValue("@Email", Properties.Settings.Default.Email);
+
+                PirepsCount = Convert.ToInt32(sqlCmd.ExecuteScalar());
+
+                MySqlCommand sqlCmd1 = new MySqlCommand(sqlPirepsCountSum, conn);
+                sqlCmd1.Parameters.AddWithValue("@Email", Properties.Settings.Default.Email);
+
+                PirepsCountSum = Convert.ToInt32(sqlCmd1.ExecuteScalar());
+
+
+                Efficiency = PirepsCountSum / PirepsCount;
+            }
+            catch (Exception crap)
+            {
+                throw new ApplicationException("Failed to load exam @UserInfo()", crap);
+            }
+            finally
+            {
+
+                conn.Close();
+            }
+        }
+    }
 }
