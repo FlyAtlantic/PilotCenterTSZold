@@ -38,7 +38,7 @@ namespace PilotCenterTSZ
         public void AllHides()
         {
             flightAssignmentCtrl.Hide();
-            //pilotAccountCtrl.Hide();
+            pilotAccountCtrl.Hide();
         }
 
         public static void GetFlightInfosToDash(int flightID, string flightCallsign, string userDeparture, string userArrival, string userAircraft)

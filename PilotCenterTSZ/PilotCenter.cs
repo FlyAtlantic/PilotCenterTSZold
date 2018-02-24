@@ -49,7 +49,7 @@ namespace PilotCenterTSZ
 
         public UserInfo()
         {
-            string sqlPilotInformations = "SELECT user_id, user_nome, user_apelido, ranks.rank, ratings.ratingname, utilizadores.callsign, utilizadores.pilot_hours, pireps.date, hubs.icao, utilizadores.location, utilizadores.eps, ranks.rankid from utilizadores left join ratings on utilizadores.rate = ratings.id left join ranks on utilizadores.rank = ranks.rankid left join pireps on utilizadores.user_id = pireps.pilotid LEFT JOIN flights ON pireps.flightid = flights.idf left join hubs on utilizadores.hub = hubs.id where user_email=@Email order by pireps.date desc LIMIT 1";
+            string sqlPilotInformations = "SELECT user_id, user_nome, user_apelido, ranks.rank, ratings.ratingname, utilizadores.callsign, utilizadores.pilot_hours, pireps.date != null, hubs.icao, utilizadores.location, utilizadores.eps, ranks.rankid from utilizadores left join ratings on utilizadores.rate = ratings.id left join ranks on utilizadores.rank = ranks.rankid left join pireps on utilizadores.user_id = pireps.pilotid LEFT JOIN flights ON pireps.flightid = flights.idf left join hubs on utilizadores.hub = hubs.id where user_email=@Email order by pireps.date desc LIMIT 1";
             MySqlConnection conn = new MySqlConnection(Login.ConnectionString);
 
             try
@@ -70,9 +70,14 @@ namespace PilotCenterTSZ
                         Rate = (string)sqlCmdRes[4];
                         Callsign = (int)sqlCmdRes[5];
                         PilotHours = TimeSpan.FromMinutes((float)sqlCmdRes[6]);
-                        LastFlight = (DateTime)sqlCmdRes[7];
+                        if ((float)sqlCmdRes[6] > 0) {
+                            LastFlight = (DateTime)sqlCmdRes[7];
+                        }
                         Hub = (string)sqlCmdRes[8];
-                        Location = (string)sqlCmdRes[9];
+                        if((string)sqlCmdRes[9] != "")
+                            Location = (string)sqlCmdRes[9];
+                        else
+                            Location = (string)sqlCmdRes[8];
                         Eps = (int)sqlCmdRes[10];
                         RankID = (int)sqlCmdRes[11];
                     }
@@ -184,19 +189,26 @@ where user_email=@Email and qualification != 0",
                 MySqlCommand sqlCmd = new MySqlCommand(sqlPirepsCount, conn);
                 sqlCmd.Parameters.AddWithValue("@Email", Properties.Settings.Default.Email);
 
-                PirepsCount = Convert.ToInt32(sqlCmd.ExecuteScalar());
+                if (Convert.ToInt32(sqlCmd.ExecuteScalar()) != 0)
+                    PirepsCount = Convert.ToInt32(sqlCmd.ExecuteScalar());
+                else
+                    PirepsCount = 0;
 
                 MySqlCommand sqlCmd1 = new MySqlCommand(sqlPirepsCountSum, conn);
                 sqlCmd1.Parameters.AddWithValue("@Email", Properties.Settings.Default.Email);
+                if (sqlCmd1.ExecuteScalar() is null)
+                    PirepsCountSum = Convert.ToInt32(sqlCmd1.ExecuteScalar());
+                else
+                    PirepsCountSum = 0;
 
-                PirepsCountSum = Convert.ToInt32(sqlCmd1.ExecuteScalar());
-
-
-                Efficiency = PirepsCountSum / PirepsCount;
+                if (PirepsCountSum > 0 && PirepsCount > 0)
+                    Efficiency = PirepsCountSum / PirepsCount;
+                else
+                    Efficiency = 0;
             }
             catch (Exception crap)
             {
-                throw new ApplicationException("Failed to load exam @UserInfo()", crap);
+                throw new ApplicationException("Failed to load exam @UserOverallEfficiency()", crap);
             }
             finally
             {
