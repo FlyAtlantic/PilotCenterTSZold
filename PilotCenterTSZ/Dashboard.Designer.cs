@@ -31,19 +31,21 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.pBarFlightTimeEnd = new Bunifu.Framework.UI.BunifuProgressBar();
+            this.lblFlightAlert = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pMenuBar = new System.Windows.Forms.Panel();
+            this.btnLogBook = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnAssignFlight = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnPilotCenter = new Bunifu.Framework.UI.BunifuFlatButton();
             this.btnRefresh = new Bunifu.Framework.UI.BunifuTileButton();
-            this.lblWelcome = new System.Windows.Forms.Label();
-            this.flightAssignmentCtrl = new PilotCenterTSZ.UI.FlightAssignmentCtrl();
-            this.VerifyAndDeleteFlight = new System.Windows.Forms.Timer(this.components);
-            this.lblFlightAlert = new System.Windows.Forms.Label();
-            this.pBarFlightTimeEnd = new Bunifu.Framework.UI.BunifuProgressBar();
-            this.FlightTimeEndTick = new System.Windows.Forms.Timer(this.components);
-            this.label1 = new System.Windows.Forms.Label();
             this.pilotAccountCtrl = new PilotCenterTSZ.UI.PilotAccountCtrl();
+            this.lblWelcome = new System.Windows.Forms.Label();
+            this.VerifyAndDeleteFlight = new System.Windows.Forms.Timer(this.components);
+            this.FlightTimeEndTick = new System.Windows.Forms.Timer(this.components);
+            this.myLogBookCtrl = new PilotCenterTSZ.UI.MyLogBookCtrl();
+            this.flightAssignmentCtrl = new PilotCenterTSZ.UI.FlightAssignmentCtrl();
             this.panel1.SuspendLayout();
             this.pMenuBar.SuspendLayout();
             this.SuspendLayout();
@@ -61,6 +63,51 @@
             this.panel1.Size = new System.Drawing.Size(1149, 77);
             this.panel1.TabIndex = 96;
             // 
+            // pilotAccountCtrl
+            // 
+            this.pilotAccountCtrl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.pilotAccountCtrl.Location = new System.Drawing.Point(214, 123);
+            this.pilotAccountCtrl.Name = "pilotAccountCtrl1";
+            this.pilotAccountCtrl.Size = new System.Drawing.Size(935, 500);
+            this.pilotAccountCtrl.TabIndex = 99;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.Control;
+            this.label1.Location = new System.Drawing.Point(631, 21);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(90, 17);
+            this.label1.TabIndex = 102;
+            this.label1.Text = "Flight Expire:";
+            this.label1.Visible = false;
+            // 
+            // pBarFlightTimeEnd
+            // 
+            this.pBarFlightTimeEnd.BackColor = System.Drawing.Color.Silver;
+            this.pBarFlightTimeEnd.BorderRadius = 5;
+            this.pBarFlightTimeEnd.Location = new System.Drawing.Point(727, 21);
+            this.pBarFlightTimeEnd.MaximumValue = 100;
+            this.pBarFlightTimeEnd.Name = "pBarFlightTimeEnd";
+            this.pBarFlightTimeEnd.ProgressColor = System.Drawing.Color.Teal;
+            this.pBarFlightTimeEnd.Size = new System.Drawing.Size(410, 21);
+            this.pBarFlightTimeEnd.TabIndex = 101;
+            this.pBarFlightTimeEnd.Value = 0;
+            this.pBarFlightTimeEnd.Visible = false;
+            // 
+            // lblFlightAlert
+            // 
+            this.lblFlightAlert.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFlightAlert.ForeColor = System.Drawing.Color.Red;
+            this.lblFlightAlert.Location = new System.Drawing.Point(248, 48);
+            this.lblFlightAlert.Name = "lblFlightAlert";
+            this.lblFlightAlert.Size = new System.Drawing.Size(889, 29);
+            this.lblFlightAlert.TabIndex = 100;
+            this.lblFlightAlert.Text = "Welcome";
+            this.lblFlightAlert.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblFlightAlert.Visible = false;
+            // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
@@ -75,6 +122,7 @@
             // pMenuBar
             // 
             this.pMenuBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.pMenuBar.Controls.Add(this.btnLogBook);
             this.pMenuBar.Controls.Add(this.btnAssignFlight);
             this.pMenuBar.Controls.Add(this.btnPilotCenter);
             this.pMenuBar.Controls.Add(this.btnRefresh);
@@ -83,6 +131,42 @@
             this.pMenuBar.Name = "pMenuBar";
             this.pMenuBar.Size = new System.Drawing.Size(211, 579);
             this.pMenuBar.TabIndex = 97;
+            // 
+            // btnLogBook
+            // 
+            this.btnLogBook.Activecolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(100)))));
+            this.btnLogBook.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.btnLogBook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.btnLogBook.BorderRadius = 0;
+            this.btnLogBook.ButtonText = "LogBook";
+            this.btnLogBook.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogBook.DisabledColor = System.Drawing.Color.Gray;
+            this.btnLogBook.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogBook.Iconcolor = System.Drawing.Color.Transparent;
+            this.btnLogBook.Iconimage = ((System.Drawing.Image)(resources.GetObject("btnLogBook.Iconimage")));
+            this.btnLogBook.Iconimage_right = null;
+            this.btnLogBook.Iconimage_right_Selected = null;
+            this.btnLogBook.Iconimage_Selected = null;
+            this.btnLogBook.IconMarginLeft = 0;
+            this.btnLogBook.IconMarginRight = 0;
+            this.btnLogBook.IconRightVisible = true;
+            this.btnLogBook.IconRightZoom = 0D;
+            this.btnLogBook.IconVisible = true;
+            this.btnLogBook.IconZoom = 90D;
+            this.btnLogBook.IsTab = false;
+            this.btnLogBook.Location = new System.Drawing.Point(0, 229);
+            this.btnLogBook.Name = "btnLogBook";
+            this.btnLogBook.Normalcolor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(46)))), ((int)(((byte)(59)))));
+            this.btnLogBook.OnHovercolor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(60)))), ((int)(((byte)(100)))));
+            this.btnLogBook.OnHoverTextColor = System.Drawing.Color.White;
+            this.btnLogBook.selected = false;
+            this.btnLogBook.Size = new System.Drawing.Size(238, 48);
+            this.btnLogBook.TabIndex = 5;
+            this.btnLogBook.Text = "LogBook";
+            this.btnLogBook.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnLogBook.Textcolor = System.Drawing.Color.White;
+            this.btnLogBook.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLogBook.Click += new System.EventHandler(this.btnLogBook_Click);
             // 
             // btnAssignFlight
             // 
@@ -119,14 +203,6 @@
             this.btnAssignFlight.Textcolor = System.Drawing.Color.White;
             this.btnAssignFlight.TextFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAssignFlight.Click += new System.EventHandler(this.btnAssignFlight_Click);
-            // 
-            // pilotAccountCtrl
-            // 
-            this.pilotAccountCtrl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.pilotAccountCtrl.Location = new System.Drawing.Point(214, 123);
-            this.pilotAccountCtrl.Name = "pilotAccountCtrl1";
-            this.pilotAccountCtrl.Size = new System.Drawing.Size(935, 500);
-            this.pilotAccountCtrl.TabIndex = 99;
             // 
             // btnPilotCenter
             // 
@@ -194,6 +270,23 @@
             this.lblWelcome.TabIndex = 98;
             this.lblWelcome.Text = "Welcome";
             // 
+            // VerifyAndDeleteFlight
+            // 
+            this.VerifyAndDeleteFlight.Interval = 10000;
+            this.VerifyAndDeleteFlight.Tick += new System.EventHandler(this.VerifyAndDeleteFlight_Tick);
+            // 
+            // FlightTimeEndTick
+            // 
+            this.FlightTimeEndTick.Interval = 1000;
+            this.FlightTimeEndTick.Tick += new System.EventHandler(this.FlightTimeEndTick_Tick);
+            // 
+            // myLogBookCtrl
+            // 
+            this.myLogBookCtrl.Location = new System.Drawing.Point(338, 131);
+            this.myLogBookCtrl.Name = "myLogBookCtrl";
+            this.myLogBookCtrl.Size = new System.Drawing.Size(678, 429);
+            this.myLogBookCtrl.TabIndex = 99;
+            // 
             // flightAssignmentCtrl
             // 
             this.flightAssignmentCtrl.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -203,59 +296,13 @@
             this.flightAssignmentCtrl.TabIndex = 99;
             this.flightAssignmentCtrl.Visible = false;
             // 
-            // VerifyAndDeleteFlight
-            // 
-            this.VerifyAndDeleteFlight.Interval = 10000;
-            this.VerifyAndDeleteFlight.Tick += new System.EventHandler(this.VerifyAndDeleteFlight_Tick);
-            // 
-            // lblFlightAlert
-            // 
-            this.lblFlightAlert.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFlightAlert.ForeColor = System.Drawing.Color.Red;
-            this.lblFlightAlert.Location = new System.Drawing.Point(248, 48);
-            this.lblFlightAlert.Name = "lblFlightAlert";
-            this.lblFlightAlert.Size = new System.Drawing.Size(889, 29);
-            this.lblFlightAlert.TabIndex = 100;
-            this.lblFlightAlert.Text = "Welcome";
-            this.lblFlightAlert.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            this.lblFlightAlert.Visible = false;
-            // 
-            // pBarFlightTimeEnd
-            // 
-            this.pBarFlightTimeEnd.BackColor = System.Drawing.Color.Silver;
-            this.pBarFlightTimeEnd.BorderRadius = 5;
-            this.pBarFlightTimeEnd.Location = new System.Drawing.Point(727, 21);
-            this.pBarFlightTimeEnd.MaximumValue = 100;
-            this.pBarFlightTimeEnd.Name = "pBarFlightTimeEnd";
-            this.pBarFlightTimeEnd.ProgressColor = System.Drawing.Color.Teal;
-            this.pBarFlightTimeEnd.Size = new System.Drawing.Size(410, 21);
-            this.pBarFlightTimeEnd.TabIndex = 101;
-            this.pBarFlightTimeEnd.Value = 0;
-            this.pBarFlightTimeEnd.Visible = false;
-            // 
-            // FlightTimeEndTick
-            // 
-            this.FlightTimeEndTick.Interval = 1000;
-            this.FlightTimeEndTick.Tick += new System.EventHandler(this.FlightTimeEndTick_Tick);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Control;
-            this.label1.Location = new System.Drawing.Point(631, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(90, 17);
-            this.label1.TabIndex = 102;
-            this.label1.Text = "Flight Expire:";
-            this.label1.Visible = false;
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1149, 656);
+            this.Controls.Add(this.myLogBookCtrl);
             this.Controls.Add(this.flightAssignmentCtrl);
             this.Controls.Add(this.lblWelcome);
             this.Controls.Add(this.pMenuBar);
@@ -289,6 +336,8 @@
         private Bunifu.Framework.UI.BunifuProgressBar pBarFlightTimeEnd;
         private System.Windows.Forms.Timer FlightTimeEndTick;
         private System.Windows.Forms.Label label1;
+        private Bunifu.Framework.UI.BunifuFlatButton btnLogBook;
+        private UI.MyLogBookCtrl myLogBookCtrl;
     }
 }
 

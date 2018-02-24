@@ -79,6 +79,7 @@
     <Compile Include="LoginFrm.Designer.cs">
       <DependentUpon>LoginFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewFolder1\Dashb.cs" />
     <Compile Include="PilotCenter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -111,6 +112,12 @@
     </Compile>
     <Compile Include="UI\FlightAssignmentCtrl.Designer.cs">
       <DependentUpon>FlightAssignmentCtrl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MyLogBookCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\MyLogBookCtrl.Designer.cs">
+      <DependentUpon>MyLogBookCtrl.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\PilotAccountCtrl.cs">
       <SubType>UserControl</SubType>
@@ -148,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\FlightAssignmentCtrl.resx">
       <DependentUpon>FlightAssignmentCtrl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\MyLogBookCtrl.resx">
+      <DependentUpon>MyLogBookCtrl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\PilotAccountCtrl.resx">
       <DependentUpon>PilotAccountCtrl.cs</DependentUpon>

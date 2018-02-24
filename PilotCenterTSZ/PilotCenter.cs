@@ -494,5 +494,47 @@ group by
         }        
 
     }
+
+    public class LogBook
+    {
+        public string Callsign
+        { get; set; }
+
+        public string Departure
+        { get; set; }
+
+        public string Arrival
+        { get; set; }
+
+        public string Aircraft
+        { get; set; }
+
+        public int FlightTime
+        { get; set; }
+
+        public int FtPerMin
+        { get; set; }
+
+        public int Sum
+        { get; set; }
+
+        public int Eps
+        { get; set; }
+
+        public LogBook()
+        {
+
+        }
+
+        public static List<LogBook> Get()
+        {
+            return new MySqlConnection(Login.ConnectionString).Query<LogBook>(
+                @"select flights.callsign as Callsign, departure as Departure, destination as Arrival, aircraft as Aircraft, pireps.flighttime as FlightTime, `ft/pm` as FtPerMin, sum as Sum, eps_granted as Eps from pireps left join flights on pireps.flightid = flights.idf left join utilizadores on pilotid = user_id where user_email = @Email and accepted = 1 order by id desc",
+                new
+                {
+                    Email = Properties.Settings.Default.Email
+                }).ToList();
+        }
+    }
 }
 

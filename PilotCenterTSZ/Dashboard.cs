@@ -39,6 +39,7 @@ namespace PilotCenterTSZ
         {
             flightAssignmentCtrl.Hide();
             pilotAccountCtrl.Hide();
+            myLogBookCtrl.Hide();
         }
 
         public static void GetFlightInfosToDash(int flightID, string flightCallsign, string userDeparture, string userArrival, string userAircraft)
@@ -85,6 +86,8 @@ namespace PilotCenterTSZ
 
             flightAssignmentCtrl.flightAssignedCtrl.UpdateInfos();
 
+            myLogBookCtrl.GetLogBook();
+
             AlertFlight();
            
         }
@@ -94,6 +97,7 @@ namespace PilotCenterTSZ
             pilotAccountCtrl.Actions();
             flightAssignmentCtrl.Actions();
             flightAssignmentCtrl.flightAssignedCtrl.UpdateInfos();
+            myLogBookCtrl.GetLogBook();
             AlertFlight();
         }
 
@@ -173,6 +177,12 @@ namespace PilotCenterTSZ
             int ssBar = (sBar * 100) / 1800;
 
             pBarFlightTimeEnd.Value = ssBar;
+        }
+
+        private void btnLogBook_Click(object sender, EventArgs e)
+        {
+            AllHides();
+            myLogBookCtrl.Show();
         }
     }
 }
