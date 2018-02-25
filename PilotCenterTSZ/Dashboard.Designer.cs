@@ -284,7 +284,7 @@
             // 
             this.myLogBookCtrl.Location = new System.Drawing.Point(214, 131);
             this.myLogBookCtrl.Name = "myLogBookCtrl";
-            this.myLogBookCtrl.Size = new System.Drawing.Size(678, 429);
+            this.myLogBookCtrl.Size = new System.Drawing.Size(925, 560);
             this.myLogBookCtrl.TabIndex = 99;
             this.myLogBookCtrl.Visible = false;
             // 

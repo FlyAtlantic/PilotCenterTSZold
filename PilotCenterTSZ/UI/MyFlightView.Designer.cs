@@ -28,17 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.btnBack = new System.Windows.Forms.Button();
-            this.btnGo = new System.Windows.Forms.Button();
-            this.splitterMap = new System.Windows.Forms.Splitter();
-            this.txtLat = new System.Windows.Forms.TextBox();
-            this.txtLon = new System.Windows.Forms.TextBox();
             this.gMapControl1 = new GMap.NET.WindowsForms.GMapControl();
+            this.chartFlightsClimbGraphic = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.chartFlightsDescentGraphic = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.lblFlightInfo = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.chartFlightsClimbGraphic)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartFlightsDescentGraphic)).BeginInit();
             this.SuspendLayout();
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(491, 181);
+            this.btnBack.Location = new System.Drawing.Point(405, 429);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 23);
             this.btnBack.TabIndex = 0;
@@ -46,47 +53,19 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
-            // btnGo
-            // 
-            this.btnGo.Location = new System.Drawing.Point(572, 181);
-            this.btnGo.Name = "btnGo";
-            this.btnGo.Size = new System.Drawing.Size(75, 23);
-            this.btnGo.TabIndex = 1;
-            this.btnGo.Text = "Go";
-            this.btnGo.UseVisualStyleBackColor = true;
-            this.btnGo.Click += new System.EventHandler(this.btnGo_Click);
-            // 
-            // splitterMap
-            // 
-            this.splitterMap.Location = new System.Drawing.Point(0, 0);
-            this.splitterMap.Name = "splitterMap";
-            this.splitterMap.Size = new System.Drawing.Size(471, 576);
-            this.splitterMap.TabIndex = 2;
-            this.splitterMap.TabStop = false;
-            // 
-            // txtLat
-            // 
-            this.txtLat.Location = new System.Drawing.Point(522, 95);
-            this.txtLat.Name = "txtLat";
-            this.txtLat.Size = new System.Drawing.Size(100, 20);
-            this.txtLat.TabIndex = 4;
-            // 
-            // txtLon
-            // 
-            this.txtLon.Location = new System.Drawing.Point(522, 141);
-            this.txtLon.Name = "txtLon";
-            this.txtLon.Size = new System.Drawing.Size(100, 20);
-            this.txtLon.TabIndex = 5;
-            // 
             // gMapControl1
             // 
+            this.gMapControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gMapControl1.Bearing = 0F;
+            this.gMapControl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.gMapControl1.CanDragMap = true;
             this.gMapControl1.EmptyTileColor = System.Drawing.Color.Navy;
             this.gMapControl1.GrayScaleMode = false;
             this.gMapControl1.HelperLineOption = GMap.NET.WindowsForms.HelperLineOptions.DontShow;
             this.gMapControl1.LevelsKeepInMemmory = 5;
-            this.gMapControl1.Location = new System.Drawing.Point(3, 3);
+            this.gMapControl1.Location = new System.Drawing.Point(13, 38);
             this.gMapControl1.MarkersEnabled = true;
             this.gMapControl1.MaxZoom = 2;
             this.gMapControl1.MinZoom = 2;
@@ -100,22 +79,66 @@
             this.gMapControl1.ScaleMode = GMap.NET.WindowsForms.ScaleModes.Integer;
             this.gMapControl1.SelectedAreaFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(65)))), ((int)(((byte)(105)))), ((int)(((byte)(225)))));
             this.gMapControl1.ShowTileGridLines = false;
-            this.gMapControl1.Size = new System.Drawing.Size(459, 570);
+            this.gMapControl1.Size = new System.Drawing.Size(467, 286);
             this.gMapControl1.TabIndex = 6;
             this.gMapControl1.Zoom = 0D;
+            // 
+            // chartFlightsClimbGraphic
+            // 
+            chartArea3.Name = "ChartArea1";
+            this.chartFlightsClimbGraphic.ChartAreas.Add(chartArea3);
+            legend3.Name = "Legend1";
+            this.chartFlightsClimbGraphic.Legends.Add(legend3);
+            this.chartFlightsClimbGraphic.Location = new System.Drawing.Point(536, 38);
+            this.chartFlightsClimbGraphic.Name = "chartFlightsClimbGraphic";
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chartFlightsClimbGraphic.Series.Add(series3);
+            this.chartFlightsClimbGraphic.Size = new System.Drawing.Size(348, 170);
+            this.chartFlightsClimbGraphic.TabIndex = 7;
+            this.chartFlightsClimbGraphic.Text = "chart1";
+            // 
+            // chartFlightsDescentGraphic
+            // 
+            chartArea4.Name = "ChartArea1";
+            this.chartFlightsDescentGraphic.ChartAreas.Add(chartArea4);
+            legend4.Name = "Legend1";
+            this.chartFlightsDescentGraphic.Legends.Add(legend4);
+            this.chartFlightsDescentGraphic.Location = new System.Drawing.Point(536, 214);
+            this.chartFlightsDescentGraphic.Name = "chartFlightsDescentGraphic";
+            series4.ChartArea = "ChartArea1";
+            series4.Legend = "Legend1";
+            series4.Name = "Series1";
+            this.chartFlightsDescentGraphic.Series.Add(series4);
+            this.chartFlightsDescentGraphic.Size = new System.Drawing.Size(348, 170);
+            this.chartFlightsDescentGraphic.TabIndex = 8;
+            this.chartFlightsDescentGraphic.Text = "chart1";
+            // 
+            // lblFlightInfo
+            // 
+            this.lblFlightInfo.AutoSize = true;
+            this.lblFlightInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFlightInfo.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.lblFlightInfo.Location = new System.Drawing.Point(13, 1);
+            this.lblFlightInfo.Name = "lblFlightInfo";
+            this.lblFlightInfo.Size = new System.Drawing.Size(52, 18);
+            this.lblFlightInfo.TabIndex = 9;
+            this.lblFlightInfo.Text = "label1";
             // 
             // MyFlightView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.lblFlightInfo);
+            this.Controls.Add(this.chartFlightsDescentGraphic);
+            this.Controls.Add(this.chartFlightsClimbGraphic);
             this.Controls.Add(this.gMapControl1);
-            this.Controls.Add(this.txtLon);
-            this.Controls.Add(this.txtLat);
-            this.Controls.Add(this.splitterMap);
-            this.Controls.Add(this.btnGo);
             this.Controls.Add(this.btnBack);
             this.Name = "MyFlightView";
-            this.Size = new System.Drawing.Size(824, 576);
+            this.Size = new System.Drawing.Size(887, 500);
+            ((System.ComponentModel.ISupportInitialize)(this.chartFlightsClimbGraphic)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartFlightsDescentGraphic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -124,10 +147,9 @@
         #endregion
 
         private System.Windows.Forms.Button btnBack;
-        private System.Windows.Forms.Button btnGo;
-        private System.Windows.Forms.Splitter splitterMap;
-        private System.Windows.Forms.TextBox txtLat;
-        private System.Windows.Forms.TextBox txtLon;
         private GMap.NET.WindowsForms.GMapControl gMapControl1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartFlightsClimbGraphic;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartFlightsDescentGraphic;
+        private System.Windows.Forms.Label lblFlightInfo;
     }
 }

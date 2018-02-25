@@ -495,6 +495,37 @@ group by
 
     }
 
+    public class FlightLog
+    {
+
+        public int Alt
+        { get; set; }
+
+        public DateTime Time
+        { get; set; }
+
+
+        public static List<FlightLog> GetClimb(string idf)
+        {
+            return new MySqlConnection(Login.ConnectionString).Query<FlightLog>(
+                @"SELECT DISTINCT ALT as Alt, time as Time FROM flightLog left join flight_phases on flightLog.phase = flight_phases.code left join pireps on flightLog.pirepid = pireps.id left join flights on pireps.flightid = flights.idf where callsign=@Callsign and alt < 10000 and phase <= 5 order by IDL asc",
+                new
+                {
+                    Callsign = idf
+                }).ToList();
+        }
+
+        public static List<FlightLog> GetDescent(string idf)
+        {
+            return new MySqlConnection(Login.ConnectionString).Query<FlightLog>(
+                @"SELECT DISTINCT ALT as Alt, time as Time FROM flightLog left join flight_phases on flightLog.phase = flight_phases.code left join pireps on flightLog.pirepid = pireps.id left join flights on pireps.flightid = flights.idf where callsign=@Callsign and alt < 10000 and phase >= 5 order by IDL asc",
+                new
+                {
+                    Callsign = idf
+                }).ToList();
+        }
+    }
+
     public class LogBook
     {
         public string Callsign
@@ -534,7 +565,10 @@ group by
                 {
                     Email = Properties.Settings.Default.Email
                 }).ToList();
-        }
+        }    
+        
+
+
     }
 }
 

@@ -48,7 +48,7 @@
             this.lstLogBook.Location = new System.Drawing.Point(214, 3);
             this.lstLogBook.MultiSelect = false;
             this.lstLogBook.Name = "lstLogBook";
-            this.lstLogBook.Size = new System.Drawing.Size(506, 513);
+            this.lstLogBook.Size = new System.Drawing.Size(506, 460);
             this.lstLogBook.TabIndex = 0;
             this.lstLogBook.UseCompatibleStateImageBehavior = false;
             this.lstLogBook.View = System.Windows.Forms.View.Details;
@@ -90,7 +90,7 @@
             // 
             this.myFlightView.Location = new System.Drawing.Point(0, 16);
             this.myFlightView.Name = "myFlightView";
-            this.myFlightView.Size = new System.Drawing.Size(935, 500);
+            this.myFlightView.Size = new System.Drawing.Size(930, 560);
             this.myFlightView.TabIndex = 1;
             this.myFlightView.Visible = false;
             // 
@@ -101,7 +101,7 @@
             this.Controls.Add(this.myFlightView);
             this.Controls.Add(this.lstLogBook);
             this.Name = "MyLogBookCtrl";
-            this.Size = new System.Drawing.Size(935, 533);
+            this.Size = new System.Drawing.Size(400, 533);
             this.ResumeLayout(false);
 
         }
